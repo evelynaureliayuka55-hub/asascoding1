@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        header {
+            background: aqua;
+            color: darkblue;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            background: blue;
+        }
+
+
+        .card {
+            background: white;
+            width: 200px;
+            height: 350px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px navy;
+            transform: translatey(50px);
+            opacity: 0;
+            animation: fadeUp 0.8s forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+
+        .image {
+            height: 250px;
+            width: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background: deepskyblue;
+        }
+
+        .shimmer1 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(download\ \(9\).jpg);
+
+        }
+
+        .shimmer2 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(download\ \(16\).jpg);
+        }
+
+        .shimmer3 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(4.jpg);
+        }
+
+        .shimmer4 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(images\ \(3\).jpg);
+
+        }
+
+        .shimmer5 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(images\ \(1\).jpg);
+        }
+
+        .shimmer6 {
+            position: relative;
+            overflow: hidden;
+            background-image: url(download\ \(5\).jpg);
+        }
+
+
+
+        .card:hover {
+            transform: perspective(1000px) rotate(8deg) scale(1.05);
+            transition: 0.4s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            100% {
+                left: 100%;
+            }
+        }
+
+        h1 {
+            margin-top: 100px;
+        }
+
+        .btn.outline {
+            border: 1.8px solid darkgreen;
+            color: darkgreen;
+            background: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn.filled {
+            background: green;
+            border: 1px solid rgba(98, 208, 126, 0.4);
+            color: #c8ffd9;
+        }
+
+        .hero {
+            min-height: 68vh;
+            background: blue;
+            /* ganti sesuai file */
+            margin-top: 70px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 10, 14, 0.55), rgba(8, 10, 14, 0.85));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: 60px 0;
+            color: aqua;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: aqua;
+            margin-bottom: 18px;
+            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .hero-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            height: 590px;
+            background: darkblue;
+        }
+
+        .bg1 {
+            background-image: url(kopi.jpg);
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        .open-modal2 {
+            padding: 12px 25px;
+            background: black;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal2 {
+            padding: 12px 25px;
+            background: black;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        .open-modal2:hover {
+            background: darkblue;
+        }
+
+        .modal2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal2:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content2 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        .modal2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal2:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal2-content {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close2 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content2 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group2 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group2 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group2 input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+
+        .btn2 {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn2:hover {
+            background: blue;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        .footer-text a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+
+
+        .login-btn {
+            background: white;
+            color: black;
+            width: 100px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: dodgerblue;
+            transform: translateY(-2px);
+        }
+
+        .about {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: blue;
+        }
+
+        .section-title .accent {
+            color: navy;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .image {
+            height: 150px;
+        }
+
+        .nav-logo {
+            color: white;
+        }
+
+        .lead {
+            text-align: center;
+            color: blue;
+            margin-bottom: 36px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* grid: photo + text */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 36px;
+            align-items: start;
+            margin-top: 28px;
+        }
+
+        .photo-1 {
+            border: 1px solid black;
+            border-radius: 30px;
+        }
+
+        .photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+
+        }
+
+        /* about text */
+        .about-text h3 {
+            font-size: 20px;
+            margin-bottom: 14px;
+            color: blue;
+        }
+
+        .about-text p {
+            color: blue;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .bio {
+            list-style: none;
+            margin-bottom: 18px;
+            color: blue;
+        }
+
+        .bio li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-container {
+            position: relative;
+            background-color: blue;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 10%;
+            /* top=atas ke bawah dan bottom sebaliknya */
+            margin-left: 35%;
+            margin: 10% 0 0 35%;
+            width: 300px;
+            box-shadow: 0 0 15px rgb(3, 24, 255);
+            color: aqua
+        }
+
+        .login-container::before,
+        .login-container::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 15px;
+            border: 2px solid rgb(0, 200, 255);
+            z-index: -1;
+        }
+
+        .login-container::before {
+            border: 2px solid rgb(62, 62, 248)
+        }
+
+        .login-container::after {
+            border: 2px solid rgb(1, 158, 255);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .login-container h2 span:first-child {
+            color: deepskyblue;
+        }
+
+        .login-container h2 span:last-child {
+            color: darkturquoise;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 14px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border: 2px solid skyblue;
+            background-color: cyan;
+            color: cyan;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            width: 35%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: deepskyblue;
+            color: darkblue;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0, 3s;
+        }
+
+        .btn:hover {
+            background-color: blue;
+            color: rgb(0, 200, 255);
+        }
+
+        .bio strong {
+            color: blue;
+            width: 120px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .open-modal {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal:hover {
+            background: darkblue;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .btn {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: blue;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        .footer-text a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+
+        .open-modal3 {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal3:hover {
+            background: darkblue;
+        }
+
+        .modal3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal3:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content3 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close3 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content3 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group3 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group3 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group3 input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .btn3 {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn3:hover {
+            background: blue;
+        }
+
+        .footer-text3 {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        .footer-text3 a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+
+        .open-modal4 {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal4:hover {
+            background: darkblue;
+        }
+
+        .modal4 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal4:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content4 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close4 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content4 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group4 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group4 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group4 input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .btn4 {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn4:hover {
+            background: blue;
+        }
+
+        .footer-text4 {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        .footer-text4 a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .open-modal5 {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal5:hover {
+            background: darkblue;
+        }
+
+        .modal5 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal5:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content5 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close5 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content5 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group5 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group5 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group5 input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .btn5 {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn5:hover {
+            background: blue;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: black;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo a {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d4a574;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #d4a574;
+        }
+
+        .login-btn {
+            background: #d4a574;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #b5895b;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .open-modal7 {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal7:hover {
+            background: darkblue;
+        }
+
+        .modal7 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal7:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content7 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close7 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content7 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group7 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group7 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group7 input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .btn7 {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn7:hover {
+            background: blue;
+        }
+
+                .open-modal7 {
+            padding: 12px 25px;
+            background: blue;
+            color: aqua;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-modal7:hover {
+            background: darkblue;
+        }
+
+        .modal7 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: deepskyblue;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal7:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content7 {
+            background: dodgerblue;
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 16px;
+            width: 320px;
+            color: black;
+            position: relative;
+            box-shadow: 0 8px 32px darkblue;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close7 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            color: darkblue;
+        }
+
+        .modal-content7 h2 {
+            text-align: center;
+            margin-bottom: 19px;
+        }
+
+        .input-group7 {
+            margin-bottom: 15px;
+            border-radius: 20px;
+        }
+
+        .input-group7 label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-group7 input{
+            width: 90%;
+            padding: 8px;
+            border-radius: 10px;
+            border:none;
+            outline: none;
+        }
+
+        .btn7{
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: aqua;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn7:hover{
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">📖Books</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+                <a href="#location" class="nav-link">Lokasi</a>
+                <button class="login-btn" onclick="openModal('loginModal')">
+                    <a href="#Login">Login</a>
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+
+    </head>
+
+    <body>
+        <div id="home" class="hero-slide bg3">
+            <div class="hero-content">
+                <h1>Selamat Datang di Toko Buku Lima Sekawan Kami</h1>
+                <p>Siap untuk petualangan besar? Bergabunglah dengan Lima Sekawan dalam mengungkap<br> rahasia kereta
+                    api
+                    hantu dan lorong bawah tanah yang gelap!
+                </p>
+
+                <h2>Jangan lupa belanggan pada toko buku kami agar<br> tidak ketinggalan update baru ya!!!</h2>
+                <br>
+                <p>@Buku_LimaSekawanTerbaru</p>
+                <img class="image" src="download (12).jpg" alt="">
+            </div>
+
+        </div>
+
+
+        <section id="about" class="about container">
+            <h2 class="section-title">Tentang <span class="accent">Kami</span></h2>
+            <p class="lead">Bukit Golf Resto Dan Resort Cafe Menawarkan pengalaman kuliner dan rekreasi yang tak
+                terlupakan di
+                tengah pemandangan bukit yang indah</p>
+
+            <div class="about-grid">
+                <figure class="photo">
+                    <img src="download (21).jpg" alt="Foto profil Evelyn">
+                </figure>
+
+                <div class="about-text">
+                    <h3>Selamat Datang<span class="accent"> Di Toko Buku_LimaSekawanTerbaru </span></h3>
+                    <p>Bosan dengan gadget? Yuk, ikut Lima Sekawan berburu harta karun dan menangkap penyelundup!
+                        Petualangan seru di setiap halamannya
+                    </p>
+
+                    <ul class="bio">
+
+
+                        <li><strong>Lokasi</strong><span> : Gramedia, Indonesia</span></li>
+                        <li><strong>Jam Operasional</strong><span> : 08.00 - 22.00</span></li>
+                        <li><strong>Telepon</strong><span> : +62 123-456-7890</span></li>
+                        <li><strong>Email</strong><span> : info@buku.com</span></li>
+                    </ul>
+
+                    <a class="btn outline" href="#" download>Reservasi Sekarang</a>
+                </div>
+            </div>
+        </section>
+        <header>
+            <H1>The Five Friends Book</H1>
+        </header>
+
+        <section class="product-container">
+
+            <div class="card">
+                <div class="image shimmer2"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Di Pulau Harta (1)</H3>
+                <p class="price">$ 270.00 USD</p>
+                <a href="#loginModal" class="open-modal">Details</a>
+
+                <div id="loginModal" class="modal">
+                    <div class="modal-content">
+                        <a href="#" class="close">&times;</a>
+                        <h2>Details</h2>
+                        <form>
+                            <div class="input-group">
+                                <label for="">
+                                    Di Pulau Harta: Mereka bertemu di Kirrin dan menemukan bangkai kapal tua yang
+                                    terdampar. Ada kotak logam berisi peta harta karun yang memicu petualangan pertama
+                                    mereka. Lima Sekawan harus berlomba dengan pencuri untuk menemukan emas di Pulau
+                                    Kirrin.</label>
+                                <!-- required digunakan untuk validasi atau verivikasi di html -->
+                            </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+            <div id="menu" class="card">
+                <div class="image shimmer3"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Beraksi Kembali (2)</H3>
+                <p class="price">$ 270.00 USD</p>
+                <a href="#loginModal2" class="open-modal2">Details</a>
+
+                <div id="loginModal2" class="modal2">
+                    <div class="modal-content2">
+                        <a href="#" class="close2">&times;</a>
+                        <h2>Details</h2>
+                        <form>
+                            <div class="input-group2">
+                                Beraksi Kembali: Liburan Natal mereka terganggu oleh guru privat mencurigakan bernama
+                                Tuan Roland. Mereka menemukan dokumen rahasia milik Paman Quentin yang dicuri dari ruang
+                                kerjanya. Penyelidikan membawa mereka ke lorong rahasia di balik lemari untuk menangkap
+                                pelakunya.
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="image shimmer3"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Beraksi Kembali (2)</H3>
+                <p class="price">$ 240.00 USD</p>
+
+                <a href="#loginModal3" class="open-modal3">Details</a>
+
+                <div id="loginModal3" class="modal3">
+                    <div class="modal-content3">
+                        <a href="#" class="close3">&times;</a>
+                        <h2>Details</h2>
+                        <form>
+                            <div class="input-group3">
+                                Minggat: Mereka melarikan diri ke Pulau Kirrin karena tidak tahan dengan pengasuh yang
+                                jahat. Di sana mereka menemukan jejak penyelundup yang menyembunyikan barang di gua-gua.
+                                Selain menemukan barang haram, mereka juga menyelamatkan seorang anak yang diculik.
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            </div>
+
+            <div class="card">
+                <div class="image shimmer1"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Minggat (3)</H3>
+                <p class="price">$ 270.00 USD</p>
+                <a href="#loginModal4" class="open-modal4">Details</a>
+
+                <div id="loginModal4" class="modal4">
+                    <div class="modal-content4">
+                        <a href="#" class="close4">&times;</a>
+                        <h2>Details</h2>
+                        <form>
+                            <div class="input-group4">
+                                Ke Sarang Penyelundup: Lima Sekawan menginap di rumah tua Smuggler's Top yang penuh
+                                dengan pintu jebakan. Seseorang memberikan sinyal lampu rahasia ke arah laut untuk
+                                memandu para penyelundup. Mereka harus mengungkap pengkhianat di dalam rumah sebelum
+                                terjebak di lorong bawah tanah.
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="card">
+                <div class="image shimmer1"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Berkelana (5)</H3>
+                <p class="price">$ 210.00 USD</p>
+                <a href="#loginModal5" class="open-modal5">Details</a>
+
+                <div id="loginModal5" class="modal5">
+                    <div class="modal-content5">
+                        <a href="#" class="close5">&times;</a>
+                        <h2>Informasi Publikasi</h2>
+                        <form>
+                            <div class="input-group5">
+                                <label for="">
+                                    Berkelana: Mereka pergi berlibur menggunakan kereta karavan dan bertemu dengan
+                                    rombongan sirkus keliling. Dua anggota sirkus yang jahat mencoba mengusir mereka
+                                    karena ada harta terpendam di sana. Timmy dan anak-anak harus melindungi lokasi
+                                    perkemahan dari incaran para pencuri tersebut.</label>
+                                <!-- required digunakan untuk validasi atau verivikasi di html -->
+                            </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="image shimmer1"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Berkelana (5)</H3>
+                <p class="price">$ 270.00 USD</p>
+                <a href="#loginModal6" class="open-modal6">Details</a>
+
+    <div id="loginModal6" class="modal6">
+        <div class="modal-content6">
+            <a href="#" class="close6">&times;</a>
+            <h2>Details</h2>
+            <form>
+                <div class="input-group4">
+                                    Berkelana: Mereka pergi berlibur menggunakan kereta karavan dan bertemu dengan
+                                    rombongan sirkus keliling. Dua anggota sirkus yang jahat mencoba mengusir mereka
+                                    karena ada harta terpendam di sana. Timmy dan anak-anak harus melindungi lokasi
+                                    perkemahan dari incaran para pencuri tersebut.
+                </div>
+            </form>
+
+        </div>
+    </div>
+            </div>
+
+            <div class="card">
+                <div class="image shimmer1"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Di Pulau Seram (20)</H3>
+                <p class="price">$ 250.00 USD</p>
+                <a href="#loginModal" class="open-modal">Details</a>
+
+                <div id="loginModal" class="modal">
+                    <div class="modal-content">
+                        <a href="#" class="close">&times;</a>
+                        <h2>Informasi Publikasi</h2>
+                        <form>
+                            <div class="input-group">
+                                <label for="">
+                                    Penulis: Enid Blyton, yang dijuluki sebagai "Ratu Tukang Cerita".
+                                    Tahun Terbit Pertama: 1942 di Britania Raya.
+                                    Penerbit Indonesia: Pertama kali diterbitkan oleh Gramedia Pustaka Utama pada tahun
+                                    1978.
+                                    Penerjemah: Agus Setiadi.
+                                    Jumlah Halaman: Sekitar 216 halaman.</label>
+                                <!-- required digunakan untuk validasi atau verivikasi di html -->
+                            </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image shimmer1"></div>
+                <h6>Lima Sekawan</h6>
+                <H3>Beraksi Kembali (2)</H3>
+                <p class="price">$ 240.00 USD</p>
+                <a href="#loginModal" class="open-modal">Details</a>
+
+                <div id="loginModal" class="modal">
+                    <div class="modal-content">
+                        <a href="#" class="close">&times;</a>
+                        <h2>Informasi Publikasi</h2>
+                        <form>
+                            <div class="input-group">
+                                <label for="">
+                                    Penulis: Enid Blyton, yang dijuluki sebagai "Ratu Tukang Cerita".
+                                    Tahun Terbit Pertama: 1942 di Britania Raya.
+                                    Penerbit Indonesia: Pertama kali diterbitkan oleh Gramedia Pustaka Utama pada tahun
+                                    1978.
+                                    Penerjemah: Agus Setiadi.
+                                    Jumlah Halaman: Sekitar 216 halaman.</label>
+                                <!-- required digunakan untuk validasi atau verivikasi di html -->
+                            </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+
+        <header id="contact">
+            <H1>Don't Forget To Buy
+                Thank You!!!
+            </H1>
+
+            <section class="services container"></section>
+            <h2 class="section-title">Lokasi <span class="accent">Kami</span></h2>
+            <p>Temukan Kami di peta berikut</p>
+            <div class="hero-cta">
+                <a class="btn outline" href="#">Liat Menu</a>
+                <a class="btn filled" href="#">Beli Sekarang</a>
+            </div>
+            </section>
+
+            <figure class="photo">
+                <img src="download (11).jpg" alt="Foto profil Evelyn">
+            </figure>
+        </header>
+
+
+        <div id="Login" class="login-container">
+            <h2><span>F</span>orm <span>L</span>ogin</h2>
+            <form action="">
+                <label for="Username">Username</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password</label>
+                <!-- type = password untuk password -->
+                <input type="password" id="password" name="password">
+                <div class="btn-containner">
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="Reset" class="btn">Batal</button>
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>
